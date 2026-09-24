@@ -1,10 +1,12 @@
 // insurance_shadow_settlement 领域资料的基础结构。
-
-export const EVENT_KINDS = Object.freeze(["CATALOG_FROZEN", "CLAIM_REPLAYED", "DIFF_CLASSIFIED", "MAPPING_REVISED", "RELEASE_SIGNED"]);
-export const REQUIRED_FIELDS = Object.freeze(["event_id", "kind", "occurred_at", "subject_id", "payload"]);
-
-export function validateEvent(record) {
-  const problems = REQUIRED_FIELDS.filter((name) => !(name in record));
-  if (!EVENT_KINDS.includes(record.kind)) problems.push("kind");
-  return problems;
-}
+// 完整事件契约已迁移到 ./events.js；这里保留历史导出路径。
+export {
+  EVENT_KINDS,
+  PAYLOAD_REQUIRED,
+  SIGN_ROLES,
+  ATTRIBUTION_BASES,
+  CHECKPOINT_STAGES,
+  FORBIDDEN_PII_FIELDS,
+  validateEvent,
+  makeEvent,
+} from "./events.js";

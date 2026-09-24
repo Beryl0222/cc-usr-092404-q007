@@ -2,8 +2,14 @@
   "event_id": "sample-018-001",
   "kind": "CATALOG_FROZEN",
   "occurred_at": "2026-09-20T09:00:00+08:00",
-  "subject_id": "demo-018",
+  "subject_id": "catalog-cat-2026-10",
   "payload": {
-    "note": "虚构资料，仅用于格式核对"
+    "catalog_version": "cat-2026-10-demo",
+    "frozen_at": "2026-09-20",
+    "entries": [
+      { "entry_code": "A001", "payment_category": "CAT_I", "price_cents": 100000 },
+      { "entry_code": "B002", "payment_category": "CAT_II", "price_cents": 50000 }
+    ],
+    "note": "虚构资料，仅用于格式核对；金额单位为分，不含真实个人信息"
   }
 }

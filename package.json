@@ -1,11 +1,12 @@
 {
   "name": "insurance-shadow-settlement",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "医保目录影子结算领域资料",
+  "description": "医保目录影子结算上线链领域资料与可复算模型",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/insurance_shadow_settlement.js"
+    "build": "node --check src/insurance_shadow_settlement.js && node --check src/events.js && node --check src/model.js && node --check src/chain.js && node --check src/privacy.js && node --check examples/demo_chain.js",
+    "demo": "node examples/demo_chain.js"
   }
 }
