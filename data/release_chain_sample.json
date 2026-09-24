@@ -1,0 +1,352 @@
+[
+  {
+    "event_id": "ev-001",
+    "kind": "CATALOG_FROZEN",
+    "occurred_at": "2026-09-01T09:00:00+08:00",
+    "subject_id": "catalog:cat-2026.10",
+    "payload": {
+      "catalog_version": "cat-2026.10",
+      "effective_from": "2026-10-01",
+      "item_count": 3120,
+      "frozen_by": "policy-staff-01"
+    }
+  },
+  {
+    "event_id": "ev-002",
+    "kind": "BASELINE_FROZEN",
+    "occurred_at": "2026-09-02T09:00:00+08:00",
+    "subject_id": "baseline:bl-2026.10-01",
+    "payload": {
+      "baseline_version": "bl-2026.10-01",
+      "catalog_version": "cat-2026.10",
+      "mapping_version": "map-2026.10-01",
+      "claim_snapshot_id": "snap-2026-q3",
+      "copay_rule_version": "copay-2026.10",
+      "scenario_version": "scen-2026.10-01",
+      "frozen_by": "release-manager-01"
+    }
+  },
+  {
+    "event_id": "ev-003",
+    "kind": "MAPPING_SUBMITTED",
+    "occurred_at": "2026-09-03T10:00:00+08:00",
+    "subject_id": "hospital:hosp-01",
+    "payload": {
+      "submission_id": "sub-0001",
+      "hospital_id": "hosp-01",
+      "baseline_version": "bl-2026.10-01",
+      "mapping_version": "map-2026.10-01",
+      "items": [
+        { "catalog_item_code": "A0301", "payment_category": "甲类" },
+        { "catalog_item_code": "B1120", "payment_category": "乙类" }
+      ],
+      "submitted_by": "hosp-01-clerk-02"
+    }
+  },
+  {
+    "event_id": "ev-004",
+    "kind": "MAPPING_SUBMITTED",
+    "occurred_at": "2026-09-03T10:01:00+08:00",
+    "subject_id": "hospital:hosp-02",
+    "payload": {
+      "submission_id": "sub-0002",
+      "hospital_id": "hosp-02",
+      "baseline_version": "bl-2026.09-03",
+      "mapping_version": "map-2026.09-03",
+      "items": [{ "catalog_item_code": "B1120", "payment_category": "丙类" }],
+      "submitted_by": "hosp-02-clerk-01"
+    }
+  },
+  {
+    "event_id": "ev-005",
+    "kind": "MAPPING_REJECTED",
+    "occurred_at": "2026-09-03T10:01:05+08:00",
+    "subject_id": "hospital:hosp-02",
+    "payload": {
+      "submission_id": "sub-0002",
+      "hospital_id": "hosp-02",
+      "expected_baseline_version": "bl-2026.10-01",
+      "actual_baseline_version": "bl-2026.09-03",
+      "reason": "STALE_BASELINE"
+    }
+  },
+  {
+    "event_id": "ev-006",
+    "kind": "MAPPING_SUBMITTED",
+    "occurred_at": "2026-09-03T10:05:00+08:00",
+    "subject_id": "hospital:hosp-02",
+    "payload": {
+      "submission_id": "sub-0003",
+      "hospital_id": "hosp-02",
+      "baseline_version": "bl-2026.10-01",
+      "mapping_version": "map-2026.10-01",
+      "items": [{ "catalog_item_code": "B1120", "payment_category": "乙类" }],
+      "submitted_by": "hosp-02-clerk-01"
+    }
+  },
+  {
+    "event_id": "ev-007",
+    "kind": "CLAIM_REPLAYED",
+    "occurred_at": "2026-09-04T08:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "replay_id": "rpl-0001",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "mapping_version": "map-2026.10-01",
+      "claim_snapshot_id": "snap-2026-q3",
+      "claim_id": "clm-1001",
+      "hospital_id": "hosp-01",
+      "service_period": "2026-08",
+      "settlement_period": "2026-09",
+      "attributed_period": "2026-09",
+      "attribution_policy": "SETTLEMENT_MONTH",
+      "shadow_amount": 860.0,
+      "currency": "CNY"
+    }
+  },
+  {
+    "event_id": "ev-008",
+    "kind": "CLAIM_REPLAYED",
+    "occurred_at": "2026-09-04T08:00:01+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "replay_id": "rpl-0002",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "mapping_version": "map-2026.10-01",
+      "claim_snapshot_id": "snap-2026-q3",
+      "claim_id": "clm-1002",
+      "hospital_id": "hosp-01",
+      "service_period": "2026-09",
+      "settlement_period": "2026-09",
+      "attributed_period": "2026-09",
+      "attribution_policy": "SETTLEMENT_MONTH",
+      "shadow_amount": 412.5,
+      "currency": "CNY"
+    }
+  },
+  {
+    "event_id": "ev-009",
+    "kind": "REPLAY_SKIPPED",
+    "occurred_at": "2026-09-04T08:00:02+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "claim_id": "clm-1001",
+      "baseline_version": "bl-2026.10-01",
+      "reason": "DUPLICATE",
+      "original_replay_id": "rpl-0001"
+    }
+  },
+  {
+    "event_id": "ev-010",
+    "kind": "DIFF_CLASSIFIED",
+    "occurred_at": "2026-09-04T09:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "diff_id": "diff-0001",
+      "replay_id": "rpl-0001",
+      "claim_id": "clm-1001",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "category": "MAPPING_CHANGE",
+      "amount_delta": -120.5,
+      "currency": "CNY",
+      "catalog_item_code": "B1120",
+      "mapping_ref": "sub-0001"
+    }
+  },
+  {
+    "event_id": "ev-011",
+    "kind": "DIFF_CLASSIFIED",
+    "occurred_at": "2026-09-04T09:00:01+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "diff_id": "diff-0002",
+      "replay_id": "rpl-0002",
+      "claim_id": "clm-1002",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "category": "NO_CHANGE",
+      "amount_delta": 0,
+      "currency": "CNY",
+      "catalog_item_code": "A0301",
+      "mapping_ref": "sub-0001"
+    }
+  },
+  {
+    "event_id": "ev-012",
+    "kind": "RELEASE_SIGNED",
+    "occurred_at": "2026-09-05T14:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "signoff_id": "sign-0001",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "role": "FINANCE",
+      "decision": "APPROVE",
+      "signed_by": "finance-lead-01"
+    }
+  },
+  {
+    "event_id": "ev-013",
+    "kind": "RELEASE_SIGNED",
+    "occurred_at": "2026-09-05T15:30:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "signoff_id": "sign-0002",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "role": "POLICY",
+      "decision": "APPROVE",
+      "signed_by": "policy-officer-02"
+    }
+  },
+  {
+    "event_id": "ev-014",
+    "kind": "RELEASE_WINDOW_OPENED",
+    "occurred_at": "2026-09-05T16:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "window_id": "win-0001",
+      "batch_id": "b-2026.10-01",
+      "baseline_version": "bl-2026.10-01",
+      "finance_signoff_id": "sign-0001",
+      "policy_signoff_id": "sign-0002",
+      "opened_by": "release-manager-01"
+    }
+  },
+  {
+    "event_id": "ev-015",
+    "kind": "CHECKPOINT_RECORDED",
+    "occurred_at": "2026-09-06T09:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "checkpoint_id": "ckp-0001",
+      "batch_id": "b-2026.10-01",
+      "hospital_id": "hosp-01",
+      "completed_steps": ["replay", "classify", "sign"],
+      "pending_steps": ["publish"]
+    }
+  },
+  {
+    "event_id": "ev-016",
+    "kind": "RESULT_PUBLISHED",
+    "occurred_at": "2026-09-06T09:05:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "publication_id": "pub-0001",
+      "batch_id": "b-2026.10-01",
+      "window_id": "win-0001",
+      "hospital_id": "hosp-01",
+      "published_version": "v1",
+      "published_by": "release-manager-01"
+    }
+  },
+  {
+    "event_id": "ev-017",
+    "kind": "CHECKPOINT_RECORDED",
+    "occurred_at": "2026-09-06T09:06:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "checkpoint_id": "ckp-0002",
+      "batch_id": "b-2026.10-01",
+      "hospital_id": "hosp-02",
+      "completed_steps": ["replay", "classify", "sign"],
+      "pending_steps": ["publish"]
+    }
+  },
+  {
+    "event_id": "ev-018",
+    "kind": "RECOVERY_RESUMED",
+    "occurred_at": "2026-09-06T09:20:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "recovery_id": "rec-0001",
+      "checkpoint_id": "ckp-0002",
+      "batch_id": "b-2026.10-01",
+      "hospital_id": "hosp-02",
+      "resumed_by": "switch-worker-01"
+    }
+  },
+  {
+    "event_id": "ev-019",
+    "kind": "RESULT_PUBLISHED",
+    "occurred_at": "2026-09-06T09:25:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "publication_id": "pub-0002",
+      "batch_id": "b-2026.10-01",
+      "window_id": "win-0001",
+      "hospital_id": "hosp-02",
+      "published_version": "v1",
+      "published_by": "release-manager-01"
+    }
+  },
+  {
+    "event_id": "ev-020",
+    "kind": "CORRECTION_ISSUED",
+    "occurred_at": "2026-09-07T10:00:00+08:00",
+    "subject_id": "batch:b-2026.10-01",
+    "payload": {
+      "correction_id": "cor-0001",
+      "corrects_publication_id": "pub-0001",
+      "batch_id": "b-2026.10-01",
+      "reason": "hosp-01 的 B1120 支付类别解释口径更新，原发布结果保留",
+      "corrected_by": "policy-officer-02"
+    }
+  },
+  {
+    "event_id": "ev-021",
+    "kind": "MAPPING_REVISED",
+    "occurred_at": "2026-09-08T11:00:00+08:00",
+    "subject_id": "hospital:hosp-02",
+    "payload": {
+      "revision_id": "rev-0001",
+      "hospital_id": "hosp-02",
+      "mapping_version": "map-2026.10-02",
+      "base_mapping_version": "map-2026.10-01",
+      "affected_batch_ids": ["b-2026.10-02"],
+      "revised_by": "hosp-02-clerk-01"
+    }
+  },
+  {
+    "event_id": "ev-022",
+    "kind": "CLAIM_REPLAYED",
+    "occurred_at": "2026-09-08T11:05:00+08:00",
+    "subject_id": "batch:b-2026.10-02",
+    "payload": {
+      "replay_id": "rpl-0003",
+      "batch_id": "b-2026.10-02",
+      "baseline_version": "bl-2026.10-01",
+      "mapping_version": "map-2026.10-02",
+      "claim_snapshot_id": "snap-2026-q3",
+      "claim_id": "clm-1003",
+      "hospital_id": "hosp-02",
+      "service_period": "2026-09",
+      "settlement_period": "2026-09",
+      "attributed_period": "2026-09",
+      "attribution_policy": "SETTLEMENT_MONTH",
+      "shadow_amount": 655.2,
+      "currency": "CNY"
+    }
+  },
+  {
+    "event_id": "ev-023",
+    "kind": "DIFF_CLASSIFIED",
+    "occurred_at": "2026-09-08T11:06:00+08:00",
+    "subject_id": "batch:b-2026.10-02",
+    "payload": {
+      "diff_id": "diff-0003",
+      "replay_id": "rpl-0003",
+      "claim_id": "clm-1003",
+      "batch_id": "b-2026.10-02",
+      "baseline_version": "bl-2026.10-01",
+      "category": "CATALOG_CHANGE",
+      "amount_delta": 45.2,
+      "currency": "CNY",
+      "catalog_item_code": "B1120",
+      "mapping_ref": "rev-0001"
+    }
+  }
+]

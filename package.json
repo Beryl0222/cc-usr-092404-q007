@@ -6,6 +6,6 @@
   "description": "医保目录影子结算领域资料",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/insurance_shadow_settlement.js"
+    "build": "node --check src/insurance_shadow_settlement.js && node --check src/release_chain.js"
   }
 }
